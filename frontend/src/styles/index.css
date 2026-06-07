@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1a3c5e;
+  --accent: #f97316;
+  --accent2: #0ea5e9;
+  --dark: #050d1a;
+  --card: rgba(10, 25, 47, 0.8);
+}
+
+@layer base {
+  * { box-sizing: border-box; scroll-behavior: smooth; }
+  body { background: var(--dark); color: #e2e8f0; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+  ::selection { background: rgba(249,115,22,0.3); }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: rgba(249,115,22,0.5); border-radius: 99px; }
+}
+
+@layer components {
+  .font-display { font-family: 'Syne', sans-serif; }
+  .font-body { font-family: 'DM Sans', sans-serif; }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-display font-bold text-sm text-white
+           transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg cursor-pointer;
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    box-shadow: 0 4px 20px rgba(249,115,22,0.3);
+  }
+  .btn-primary:hover { box-shadow: 0 8px 30px rgba(249,115,22,0.45); }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-display font-bold text-sm
+           border border-white/10 text-slate-300 hover:border-orange-500/40 hover:text-white
+           transition-all duration-200 hover:-translate-y-0.5 cursor-pointer;
+  }
+
+  .btn-gov {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-display font-bold text-sm text-white
+           transition-all duration-200 hover:-translate-y-0.5 cursor-pointer;
+    background: linear-gradient(135deg, #166534, #15803d);
+    box-shadow: 0 4px 20px rgba(22,101,52,0.35);
+  }
+
+  .card { @apply bg-[rgba(10,25,47,0.8)] border border-white/5 rounded-2xl; }
+  .section { @apply py-20 px-4 md:px-8; }
+  .container { @apply max-w-6xl mx-auto; }
+
+  .tag {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest font-body;
+    background: rgba(249,115,22,0.1); border: 1px solid rgba(249,115,22,0.3); color: #f97316;
+  }
+  .tag-gov {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest font-body;
+    background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.3); color: #22c55e;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #f97316, #fbbf24);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .gradient-text-blue {
+    background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .input {
+    @apply w-full rounded-xl px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500
+           focus:outline-none transition-all duration-200 font-body;
+    background: rgba(10,25,47,0.8); border: 1px solid rgba(255,255,255,0.07);
+  }
+  .input:focus { border-color: rgba(249,115,22,0.5); box-shadow: 0 0 0 3px rgba(249,115,22,0.1); }
+
+  .glow-bg {
+    position: absolute; border-radius: 50%; pointer-events: none; filter: blur(90px);
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Esakha logo styling */
+  .esakha-logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    background: linear-gradient(135deg, #f97316, #fbbf24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  /* Admin panel */
+  .admin-sidebar { background: rgba(5,13,26,0.95); border-right: 1px solid rgba(249,115,22,0.15); }
+  .admin-card { @apply card p-6; }
+  .stat-card {
+    @apply card p-6 relative overflow-hidden;
+    border-bottom: 2px solid;
+  }
+}
